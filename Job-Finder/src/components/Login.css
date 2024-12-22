@@ -1,0 +1,21 @@
+.login-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.login-inputs input {
+    padding: 8px;
+    margin: 10px;
+}
+
+.login-role label {
+    margin: 10px;
+}
+
+.login-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}

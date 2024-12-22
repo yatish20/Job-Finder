@@ -1,0 +1,108 @@
+.candidate-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+}
+
+h1 {
+    color: #222;
+    text-align: center;
+}
+
+input[type="text"] {
+    margin: 20px auto;
+    display: block;
+    padding: 10px;
+    width: 80%;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.job-listings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.job-card {
+    width: 300px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-card h3 {
+    margin-top: 0;
+    color: #444;
+}
+
+.job-card p {
+    color: #666;
+}
+
+.job-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.job-card button:hover {
+    background-color: #0056b3;
+}
+
+.application-form {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.application-form h2 {
+    color: #222;
+}
+
+.application-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.application-form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.application-form button:hover {
+    background-color: #218838;
+}
+
+.application-form button:last-child {
+    background-color: #dc3545;
+}
+
+.application-form button:last-child:hover {
+    background-color: #c82333;
+}

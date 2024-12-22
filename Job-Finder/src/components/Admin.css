@@ -1,0 +1,83 @@
+.admin-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+h1,
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.job-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.job-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.job-form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.job-form button:hover {
+    background-color: #45a049;
+}
+
+.job-listings {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.job-listings ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.job-listings li {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fdfdfd;
+}
+
+.job-listings h3 {
+    color: #444;
+}
+
+.job-listings button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.job-listings button:hover {
+    background-color: #ff3333;
+}
