@@ -6,6 +6,7 @@ import Admin from "./components/Admin";
 import Candidate from "./components/Candidate";
 import Home from "./components/Home";
 import Registration from "./components/registration";
+import Chatbot from "./components/Chatbot";
 
 const App = () => {
   const [userRole, setUserRole] = useState(localStorage.getItem("userRole") || null);
@@ -78,6 +79,7 @@ const App = () => {
         {/* 404 Page */}
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
+      <Chatbot />
     </Router>
   );
 };

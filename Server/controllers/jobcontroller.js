@@ -10,11 +10,11 @@ const getJobs = (req, res) => {
     });
 };
 
-// Create a new job listing
+// Create a new job
 const createJob = (req, res) => {
     const { title, description, location, salary, contact_email } = req.body;
 
-    if (!title || !description || !salary || !contact_email) {
+    if (!title || !description || !location || !salary || !contact_email) {
         return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -31,10 +31,15 @@ const createJob = (req, res) => {
 };
 
 // Apply for a job
+
+
+// Apply for a job
 const applyJob = (req, res) => {
+    console.log("Request payload:", req.body);
     const { job_id, candidate_name, contact } = req.body;
 
     if (!job_id || !candidate_name || !contact) {
+        console.error("Missing fields:", { job_id, candidate_name, contact });
         return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -43,6 +48,7 @@ const applyJob = (req, res) => {
         [job_id, candidate_name, contact],
         (err, result) => {
             if (err) {
+                console.error("Database error:", err);
                 return res.status(500).json({ message: "Database error", error: err });
             }
             res.status(201).json({ message: "Application submitted successfully" });
@@ -50,4 +56,9 @@ const applyJob = (req, res) => {
     );
 };
 
+
+module.exports = { applyJob };
+
+
+// Export the controller functions
 module.exports = { getJobs, createJob, applyJob };

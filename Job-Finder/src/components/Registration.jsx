@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Registration.css";
+import profimg from "../assets/profimg.avif";
 
 const Registration = () => {
     const [formData, setFormData] = useState({
@@ -23,7 +24,6 @@ const Registration = () => {
         e.preventDefault();
         setMessage("");
         setError("");
-
 
         if (!formData.role) {
             setError("Please select a role.");
@@ -52,49 +52,59 @@ const Registration = () => {
 
     return (
         <div className="registration-container">
-            <h1>User Registration</h1>
-            <form className="registration-form" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    value={formData.username}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    required
-                />
+            <div className="registration-form">
+                <h1 id="user-registration">User Registration</h1>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        value={formData.username}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <br />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <br />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <br />
 
-                <select
-                    name="role"
-                    value={formData.role}
-                    onChange={handleInputChange}
-                    required
-                >
-                    <option value="" disabled>
-                        Select Role
-                    </option>
-                    <option value="admin">Admin</option>
-                    <option value="candidate">Candidate</option>
-                </select>
-                <button type="submit">Register</button>
-            </form>
-            {message && <p className="success-message">{message}</p>}
-            {error && <p className="error-message">{error}</p>}
+                    <select
+                        name="role"
+                        value={formData.role}
+                        onChange={handleInputChange}
+                        required
+                    >
+                        <option value="" disabled>
+                            Select Role
+                        </option>
+                        <option value="admin">Admin</option>
+                        <option value="candidate">Candidate</option>
+                    </select>
+                    <br />
+                    <button type="submit">Register</button>
+                </form>
+                {message && <p className="success-message">{message}</p>}
+                {error && <p className="error-message">{error}</p>}
+            </div>
+
+            <div className="right-panel">
+                <img src={profimg} alt="Placeholder Image" />
+            </div>
         </div>
     );
 };

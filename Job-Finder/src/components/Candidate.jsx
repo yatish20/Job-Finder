@@ -36,6 +36,13 @@ const Candidate = () => {
             alert("Please fill out all fields.");
             return;
         }
+
+        console.log("Payload being sent:", {
+            job_id: selectedJob.id,
+            candidate_name: application.name,
+            contact: application.contact,
+        });
+
         try {
             await axios.post("http://localhost:5000/api/applications", {
                 job_id: selectedJob.id,

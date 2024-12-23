@@ -9,7 +9,7 @@ const Admin = () => {
         description: "",
         location: "",
         salary: "",
-        contactEmail: "",
+        contact_email: "",
     });
 
     // Fetch jobs from the backend
@@ -28,21 +28,29 @@ const Admin = () => {
     const handleInputChange = (e) => {
         setNewJob({ ...newJob, [e.target.name]: e.target.value });
     };
-
     const addJob = async () => {
         if (Object.values(newJob).some((field) => !field)) {
             alert("All fields are required.");
             return;
         }
+
+        // Ensure salary is converted to a number
+        const formattedJob = {
+            ...newJob,
+            salary: Number(newJob.salary),
+        };
+
         try {
-            const response = await axios.post("http://localhost:5000/api/jobs", newJob);
-            setJobs([...jobs, response.data]);
-            setNewJob({ title: "", description: "", location: "", salary: "", contactEmail: "" });
+            const response = await axios.post("http://localhost:5000/api/jobs", formattedJob); // Corrected route
+            console.log("Job added successfully:", response.data);
+            setJobs([...jobs, { ...formattedJob, id: response.data.jobId }]); // Update local state
+            setNewJob({ title: "", description: "", location: "", salary: "", contact_email: "" });
         } catch (error) {
-            console.error("Error adding job:", error);
+            console.error("Error adding job:", error.response ? error.response.data : error.message);
             alert("Failed to add job.");
         }
     };
+
 
     const deleteJob = async (id) => {
         try {
@@ -88,9 +96,9 @@ const Admin = () => {
                 />
                 <input
                     type="email"
-                    name="contactEmail"
+                    name="contact_email"
                     placeholder="Contact Email"
-                    value={newJob.contactEmail}
+                    value={newJob.contact_email}
                     onChange={handleInputChange}
                 />
                 <button onClick={addJob}>Add Job</button>
@@ -108,7 +116,7 @@ const Admin = () => {
                                 <p>{job.description}</p>
                                 <p><strong>Location:</strong> {job.location}</p>
                                 <p><strong>Salary:</strong> ${job.salary}</p>
-                                <p><strong>Contact:</strong> {job.contactEmail}</p>
+                                <p><strong>Contact:</strong> {job.contact_email}</p>
                                 <button onClick={() => deleteJob(job.id)}>Delete</button>
                             </li>
                         ))}

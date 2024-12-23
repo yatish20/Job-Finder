@@ -9,6 +9,8 @@ const authRoutes = require("./Routes/authRoutes");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api", jobRoutes);

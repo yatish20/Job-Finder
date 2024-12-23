@@ -1,21 +1,126 @@
+/* Main container for the login page */
 .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     padding: 20px;
-    text-align: center;
+    background-color: rgb(255, 243, 229);
+    font-family: 'Roboto', sans-serif;
+    background-image: url(../assets/loginimg2.avif);
 }
 
+/* Login form container with padding, background, shadow, and rounded corners */
+.login-form-container {
+    background-color: rgb(255, 243, 229);
+    ;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 70px;
+}
+
+/* Heading styling */
+h4 {
+    color: #1f1f1f;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 0;
+}
+
+/* Style for input fields */
 .login-inputs input {
-    padding: 8px;
-    margin: 10px;
+    width: 100%;
+    max-width: 350px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus effect for inputs */
+.login-inputs input:focus {
+    border-color: #4caf50;
+    outline: none;
+    background-color: #f9f9f9;
+}
+
+/* Styling for the radio buttons and labels */
+.login-role {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 .login-role label {
-    margin: 10px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
+/* Hover effect for radio button labels */
+.login-role label:hover {
+    color: #4caf50;
+}
+
+/* Styling for the login button */
 .login-button {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px;
     background-color: #4caf50;
     color: white;
     border: none;
-    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.login-button:hover {
+    background-color: #45a049;
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Optional: Add a background image or color on the right panel */
+.login-container {
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+/* Add some responsive behavior */
+@media (max-width: 480px) {
+    .login-inputs input {
+        max-width: 100%;
+    }
+
+    .login-button {
+        max-width: 100%;
+    }
+
+    .login-form-container {
+        width: 100%;
+        padding: 30px 20px;
+    }
 }

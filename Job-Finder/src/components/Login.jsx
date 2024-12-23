@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
 import axios from "axios";
+import "./Login.css";
 
 const Login = ({ setUserRole }) => {
     const [role, setRole] = useState(""); // 'admin' or 'candidate'
@@ -9,7 +9,6 @@ const Login = ({ setUserRole }) => {
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
-
 
     const handleLogin = async () => {
         if (!role) {
@@ -55,45 +54,47 @@ const Login = ({ setUserRole }) => {
 
     return (
         <div className="login-container">
-            <h2>Login</h2>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
-            <div className="login-inputs">
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>
-            <div className="login-role">
-                <label>
+            <div className="login-form-container">
+                <h4 id="login1">Login</h4>
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
+                <div className="login-inputs">
                     <input
-                        type="radio"
-                        value="admin"
-                        checked={role === "admin"}
-                        onChange={(e) => setRole(e.target.value)}
+                        type="text"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
-                    Admin
-                </label>
-                <label>
                     <input
-                        type="radio"
-                        value="candidate"
-                        checked={role === "candidate"}
-                        onChange={(e) => setRole(e.target.value)}
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
-                    Candidate
-                </label>
+                </div>
+                <div className="login-role">
+                    <label>
+                        <input
+                            type="radio"
+                            value="admin"
+                            checked={role === "admin"}
+                            onChange={(e) => setRole(e.target.value)}
+                        />
+                        Admin
+                    </label>
+                    <label>
+                        <input
+                            type="radio"
+                            value="candidate"
+                            checked={role === "candidate"}
+                            onChange={(e) => setRole(e.target.value)}
+                        />
+                        Candidate
+                    </label>
+                </div>
+                <button className="login-button" onClick={handleLogin}>
+                    Login
+                </button>
             </div>
-            <button className="login-button" onClick={handleLogin}>
-                Login
-            </button>
         </div>
     );
 };
